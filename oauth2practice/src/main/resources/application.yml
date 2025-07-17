@@ -24,6 +24,6 @@ spring:
             user-name-attribute: response
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
