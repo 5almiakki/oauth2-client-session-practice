@@ -33,11 +33,12 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                 return null;
         }
         String username = response.getProvider() + "_" + response.getProviderId();
-        String role = null;
+        String role;
         Optional<UserEntity> user = userRepository.findByUsername(username);
         if (user.isPresent()) {
             role = user.get().getRole();
         } else {
+            role = "ROLE_USER";
             userRepository.save(new UserEntity(username, role));
         }
         return new CustomOAuth2User(response, role);
