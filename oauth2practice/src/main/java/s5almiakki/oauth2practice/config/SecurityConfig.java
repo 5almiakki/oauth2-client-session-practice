@@ -23,6 +23,7 @@ public class SecurityConfig {
                 .httpBasic(httpBasic -> httpBasic.disable())
                 // oauth2Login은 자동으로 여러가지 설정해주는 반면, oauth2Client는 커스텀할 것들이 많다.
                 .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/login")
                         .userInfoEndpoint(config -> config
                                 .userService(customOAuth2UserService)))
                 .authorizeHttpRequests(request -> request
